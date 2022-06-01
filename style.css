@@ -1,0 +1,22 @@
+.jumbotron {
+    width: 100%;
+    text-align: center;    
+    display: inline-block;
+    background-color: rgb(171, 171, 204);
+    margin: auto;
+}
+
+
+.card-body {
+    text-align: left;
+    background-color: rgb(149, 185, 173);
+}
+
+.row {
+    background-color: rgb(169, 196, 215);
+}
+
+.card-link {
+    text-align: justify;
+}
+
