@@ -11,7 +11,7 @@ function roleSelection() {
       {
         type: "list",
         message: "Select Role",
-        name: "Role",
+        name: "role",
         choices: ["Engineer", "Intern", "Build Template"],
         //   validate: (value) => {
         //     if (value) {
@@ -21,11 +21,16 @@ function roleSelection() {
       },
     ])
     .then((data) => {
-      console.log(data);
+      if (data.role === "Build Template") {
+        //this is where we trigger the template creation
+        console.log(myTeam);
+      } else {
+        employeeInfo(data.role);
+      }
     });
 }
 
-function employeeInfo() {
+function employeeInfo(role) {
   inquirer
     .prompt([
       {
@@ -45,8 +50,14 @@ function employeeInfo() {
       },
     ])
     .then((data) => {
+      if (role === "Engineer") {
+        engineerInfo(data);
+      } else if (role === "Intern") {
+        internInfo(data);
+      } else {
+        managerInfo(data);
+      }
       //   console.log(data);
-      managerInfo(data);
     });
 }
 
@@ -69,11 +80,12 @@ function managerInfo(employeeData) {
         data.officeNumber
       );
       myTeam.push(manager);
+      roleSelection();
       //   console.log(manager);
     });
 }
 
-function engineerInfo() {
+function engineerInfo(employeeData) {
   inquirer
     .prompt([
       {
@@ -91,10 +103,11 @@ function engineerInfo() {
         data.github
       );
       myTeam.push(engineer);
+      roleSelection()
     });
 }
 
-function internInfo() {
+function internInfo(employeeData) {
   inquirer
     .prompt([
       {
@@ -112,6 +125,7 @@ function internInfo() {
         data.school
       );
       myTeam.push(intern);
+      roleSelection()
     });
 }
 
