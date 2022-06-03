@@ -33,62 +33,68 @@ const bottomHtml = `
 
 `;
 
-function generateHtml(myTeam) {    
-  const templateArray = myTeam.map((employeeObject) => {
-    if (employeeObject.getRole() === "Engineer") {
-      return `  <div class="col-4 mb-4">
+function generateHtml(myTeam) {
+    const templateArray = myTeam.map((employeeObject) => {
+        if (employeeObject.getRole() === "Engineer") {
+            return `  <div class="col-4 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${employeeObject.name}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${employeeObject.getRole()}</h6>
                         <ul style="list-style-type:none;">
-                            <li class="card-text">${employeeObject.id}</li>
-                            <li href="#" class="card-link">${employeeObject.email}</li>
-                            <li href="#" class="card-link">${employeeObject.gitHub}</li>                            
+                        <li class="list-group-item">ID: ${employeeObject.id
+                }</li>
+                        <li class="list-group-item">Email: ${employeeObject.email
+                }</li>
+                        <li class="list-group-item">GitHub: ${employeeObject.gitHub
+                }</li>                            
                         </ul>
                     </div>
                 </div>
             </div>
         
         `;
-    } else if (employeeObject.getRole() === "Intern") {
-      return `  <div class="col-4 mb-4">
+        } else if (employeeObject.getRole() === "Intern") {
+            return `  <div class="col-4 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${employeeObject.name}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${employeeObject.getRole()}</h6>
                         <ul style="list-style-type:none;">
-                            <li class="card-text">${employeeObject.id}</li>
-                            <li <a href="#" class="card-link">${employeeObject.email}</li>
-                            <li href="#" class="card-link">${employeeObject.school}</li>                            
+                        <li class="list-group-item">ID: ${employeeObject.id}</li>
+                        <li class="list-group-item">Email: ${employeeObject.email}</li>
+                        <li class="list-group-item">School: ${employeeObject.school}</li>                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            `;
+        } else if (employeeObject.getRole() === "Manager") {
+            return `<div class="col-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${employeeObject.name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${employeeObject.getRole()}</h6>
+                        <ul style="list-style-type:none;">
+                            <li class="list-group-item">ID: ${employeeObject.id
+                }</li>
+                            <li class="list-group-item">Email: ${employeeObject.email
+                }</li>
+                            <li class="list-group-item">Office Number: ${employeeObject.officeNumber
+                }</li>
                         </ul>
                     </div>
                 </div>
             </div>
         
         `;
-    } else if (employeeObject.getRole() === "Manager") {
-      return `  <div class="col-4 mb-4">
-                  <div class="card">
-                      <div class="card-body">
-                          <h5 class="card-title">${employeeObject.name}</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">${employeeObject.getRole()}</h6>
-                          <ul style="list-style-type:none;">
-                              <li class="card-text">${employeeObject.id}</li>
-                              <li href="#" class="card-link">${employeeObject.email}</li>
-                              <li href="#" class="card-link">${employeeObject.officeNumber}</li>                            
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          
-          `;
-    }
-  });
+        }
+    });
 
-  const finalTemplate = `${firstHtml} ${templateArray.join("")} ${bottomHtml}`;
-  fs.writeFile("./dist/output.html", finalTemplate, (err) =>
-    err ? console.error(err) : console.log("My Team is Full")
-  );
+    const finalTemplate = `${firstHtml} ${templateArray.join("")} ${bottomHtml}`;
+    fs.writeFile("./dist/output.html", finalTemplate, (err) =>
+        err ? console.error(err) : console.log("My Team is Full")
+    );
 }
 module.exports = generateHtml;
