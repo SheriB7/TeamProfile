@@ -1,9 +1,9 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-// const Employee = require(" ");
-// const Engineer = require("./lib/Engineer");
-// const Intern = require("./lib/Intern");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const myTeam = [];
 
 function roleSelection() {
   inquirer
@@ -45,11 +45,12 @@ function employeeInfo() {
       },
     ])
     .then((data) => {
-      console.log(data);
+      //   console.log(data);
+      managerInfo(data);
     });
 }
 
-function managerInfo() {
+function managerInfo(employeeData) {
   inquirer
     .prompt([
       {
@@ -59,7 +60,16 @@ function managerInfo() {
       },
     ])
     .then((data) => {
-      console.log(data);
+      //   console.log(data);
+      //   console.log(employeeData);
+      const manager = new Manager(
+        employeeData.name,
+        employeeData.id,
+        employeeData.email,
+        data.officeNumber
+      );
+      myTeam.push(manager);
+      //   console.log(manager);
     });
 }
 
@@ -90,6 +100,9 @@ function internInfo() {
       console.log(data);
     });
 }
+
+employeeInfo();
+
 //----------MANAGER
 // enter the team manager’s
 // name,
