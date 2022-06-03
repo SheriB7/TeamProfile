@@ -11,9 +11,11 @@ Building an application using Node.js command-line to inputs information on the 
 - [Tests](#Tests)
 - [Video-Links](#Video-Links)
 
+<!-- ![Html Template](./images/MyTeam.png) -->
+
 ## Installation
 
-Installing [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer)for collecting input from the user.
+Installing [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user.
 
 ## Usage
 
@@ -24,4 +26,5 @@ Employee information
 Testing will be done on Employee, Engineer, Intern and Manger using jest tests
 
 ## Video Links
+
 [Testing](https://drive.google.com/file/d/1PSuuPZ3gZ3htzeDWUTPOeEk0DFIpaIWJ/view)
