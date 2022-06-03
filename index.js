@@ -3,6 +3,7 @@ const inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const generateHtml = require("./src/template");
 const myTeam = [];
 
 function roleSelection() {
@@ -13,17 +14,14 @@ function roleSelection() {
         message: "Select Role",
         name: "role",
         choices: ["Engineer", "Intern", "Build Template"],
-        //   validate: (value) => {
-        //     if (value) {
-        //       return "i need a value to continue";
-        //     }
-        //   },
+        
       },
     ])
     .then((data) => {
       if (data.role === "Build Template") {
         //this is where we trigger the template creation
-        console.log(myTeam);
+        //
+        generateHtml(myTeam);
       } else {
         employeeInfo(data.role);
       }
@@ -103,7 +101,7 @@ function engineerInfo(employeeData) {
         data.github
       );
       myTeam.push(engineer);
-      roleSelection()
+      roleSelection();
     });
 }
 
@@ -125,7 +123,7 @@ function internInfo(employeeData) {
         data.school
       );
       myTeam.push(intern);
-      roleSelection()
+      roleSelection();
     });
 }
 

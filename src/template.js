@@ -1,0 +1,62 @@
+const firstHtml = `
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <!-- <div class="container"> -->
+        <h1 class="display-4">MY TEAM</h1>
+    </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-md-2">
+        
+`;
+
+const bottomHtml = `
+</div>
+    </div>
+</body>
+</html>
+
+`;
+
+function generateHtml(myTeam) {
+    const templateArray = myTeam.map(employeeObject => {
+        `<div class="container-fluid">
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Role</h6>
+                        <ul style="list-style-type:none;">
+                            <li class="card-text">ID #</li>
+                            <li href="#" class="card-link">Email</li>
+                            <li href="#" class="card-link">GitHub</li>
+                            <li class="card-text">Office Number</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+        `
+
+    })
+    
+    
+    const finalTemplate = `${firstHtml} ${templateArray.join("")} ${bottomHtml}`
+    fs.writeFile(fileName, template, (err) =>
+    err ? console.error(err) : console.log('My Team is Full')) ;
+}
+module.exports = generateHtml
