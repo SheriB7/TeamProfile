@@ -83,7 +83,14 @@ function engineerInfo() {
       },
     ])
     .then((data) => {
-      console.log(data);
+      //   console.log(data);
+      const engineer = new Engineer(
+        employeeData.name,
+        employeeData.id,
+        employeeData.email,
+        data.github
+      );
+      myTeam.push(engineer);
     });
 }
 
@@ -97,7 +104,14 @@ function internInfo() {
       },
     ])
     .then((data) => {
-      console.log(data);
+      //   console.log(data);
+      const intern = new Intern(
+        employeeData.name,
+        employeeData.id,
+        employeeData.email,
+        data.school
+      );
+      myTeam.push(intern);
     });
 }
 
