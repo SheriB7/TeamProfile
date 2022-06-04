@@ -61,9 +61,12 @@ function generateHtml(myTeam) {
                         <h5 class="card-title">${employeeObject.name}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${employeeObject.getRole()}</h6>
                         <ul style="list-style-type:none;">
-                        <li class="list-group-item">ID: ${employeeObject.id}</li>
-                        <li class="list-group-item">Email: ${employeeObject.email}</li>
-                        <li class="list-group-item">School: ${employeeObject.school}</li>                            
+                        <li class="list-group-item">ID: ${employeeObject.id
+                }</li>
+                        <li class="list-group-item">Email: ${employeeObject.email
+                }</li>
+                        <li class="list-group-item">School: ${employeeObject.school
+                }</li>                            
                         </ul>
                     </div>
                 </div>
